@@ -10,6 +10,10 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  res.send('Chatbot backend is running!');
+});
+
 app.post('/api/checklist', async (req, res) => {
   const { tech } = req.body;
 
@@ -21,7 +25,7 @@ app.post('/api/checklist', async (req, res) => {
         messages: [
           {
             role: 'system',
-            content: 'Create a production deployment checklist for a [type of application] built using [tech stack]. The checklist should cover pre-deployment, deployment, and post-deployment steps,including security, monitoring, and rollback plans. Format it as a detailed, bullet-pointed list that can be used by DevOps or engineering teams.',
+            content: 'Create a production deployment checklist for a [type of application] built using [tech stack]. The checklist should cover pre-deployment, deployment, and post-deployment steps, add Ip whitelisting for AWS including security, monitoring, and rollback plans. Format it as a detailed, bullet-pointed list that can be used by DevOps or engineering teams.',
           },
           {
             role: 'user',
@@ -50,6 +54,8 @@ app.post('/api/checklist', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+
 
 
 
