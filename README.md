@@ -6,7 +6,7 @@ you can download from this site : https://nodejs.org/en/download
 
 ### `node-v`
 
-# Download the project and extract it.
+# Clone the Repo with "git clone"
 
 # Open the project folder in file explorer 
 
