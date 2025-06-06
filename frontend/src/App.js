@@ -42,6 +42,9 @@ function App() {
     setResponses(newResponses);
     setLoading(false);
   };
+  const handlePrint = () => {
+    window.print();
+  };
 
   return (
     <div className="app-container">
@@ -78,7 +81,8 @@ function App() {
       </div>
 
       {Object.entries(responses).length > 0 && (
-        <div className="results-section">
+        <>
+        <div className="results-section" id = "pdf-content">
           {Object.entries(responses).map(([tech, checklist]) => (
             <div key={tech} className="checklist-result">
               <h3>{tech} Checklist:</h3>
@@ -91,6 +95,11 @@ function App() {
             </div>
           ))}
         </div>
+        
+        <button className="print-button" onClick={handlePrint}>
+            Print as PDF
+          </button>
+          </>
       )}
     </div>
   );

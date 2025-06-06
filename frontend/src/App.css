@@ -95,5 +95,48 @@
   border-radius: 5px;
 }
 
+.print-button {
+  margin-top: 20px;
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background-color: #b00;
+}
+
+/* Print-specific styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #pdf-content,
+  #pdf-content * {
+    visibility: visible;
+  }
+
+  #pdf-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .print-button,
+  .generate-button,
+  .checkbox-group,
+  .category-label,
+  .heading {
+    display: none;
+  }
+}
+
+
 
 
