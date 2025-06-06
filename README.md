@@ -2,7 +2,7 @@
 Node.js
 you can download from this site : https://nodejs.org/en/download
 
-# Open a terminal check for the version for node.js using command
+# Open a terminal to check for the version for node.js using command
 
 ### `node-v`
 
