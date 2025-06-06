@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "workspaces": ["frontend", "backend"],
   "scripts": {
     "start": "concurrently \"npm run backend\" \"npm run frontend\"",
     "backend": "cd backend && npm start",
