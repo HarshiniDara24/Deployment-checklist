@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const writeLog = require('./logger');
 require('dotenv').config();
 
 const app = express();
@@ -11,12 +12,13 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
+  writeLog(`Server is running in port ${PORT}`);
   res.send('Chatbot backend is running!');
 });
 
 app.post('/api/checklist', async (req, res) => {
   const { tech } = req.body;
-
+  writeLog(`Port ${PORT} Running: Api/Checklist`);
   try {
     const gptResponse = await axios.post(
       'https://api.openai.com/v1/chat/completions',
@@ -51,6 +53,7 @@ app.post('/api/checklist', async (req, res) => {
     const checklist = gptResponse.data.choices[0].message.content;
     res.json({ response: checklist });
   } catch (error) {
+    writeLog(`Error in Port ${PORT}: Open AI Error: ${error}`);
     console.error('OpenAI Error:', error.message);
     res.status(500).json({ error: 'Failed to fetch data from OpenAI' });
   }
