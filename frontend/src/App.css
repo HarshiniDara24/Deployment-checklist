@@ -104,6 +104,7 @@
   font-size: 16px;
   border-radius: 20px;
   cursor: pointer;
+  
 }
 
 .print-button:hover {
@@ -135,6 +136,12 @@
   .heading {
     display: none;
   }
+}
+
+.print-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 

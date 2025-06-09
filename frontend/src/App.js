@@ -96,9 +96,12 @@ function App() {
           ))}
         </div>
         
-        <button className="print-button" onClick={handlePrint}>
-            Print as PDF
-          </button>
+       <div className="print-button-container">
+            <button className="print-button" onClick={handlePrint}>
+                Print as PDF
+            </button>
+       </div>
+
           </>
       )}
     </div>
