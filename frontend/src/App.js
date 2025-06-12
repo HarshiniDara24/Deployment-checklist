@@ -4,6 +4,9 @@ import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 import './App.css';
 
+ const API_URL = process.env.REACT_APP_API_URL || '';
+
+
 const checklistOptions = {
   'User Interface': ['React', 'HTML/CSS', 'Angular', 'Javascript'],
   Backend: ['NodeJS', 'Java', '.Net'],
@@ -30,8 +33,11 @@ function App() {
     for (const tech of selectedTechs) {
       try {
         //const res = await axios.post('http://localhost:5000/api/checklist', { tech });
-        const res = await axios.post('/api/checklist', { tech });
-        
+       // const res = await axios.post('/api/checklist', { tech });
+       
+
+        const res = await axios.post(`${API_URL}/api/checklist`, { tech });
+
 
 
         newResponses[tech] = res.data.response;
