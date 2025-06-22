@@ -25,14 +25,20 @@ app.post('/api/checklist', async (req, res) => {
       {
         model: 'gpt-4',
         messages: [
-          {
-            role: 'system',
-            content: 'Create a production deployment checklist for a [type of application] built using [tech stack]. The checklist should cover deployment-phase steps,  including security, monitoring, rollback plans.Ensure to include IP whitelisting steps specifically for AWS services. Format it as a detailed, bullet-pointed list that can be used by DevOps or engineering teams.',
-          },
-        // {
-//   role: 'system',
-//   content: 'You are a DevOps expert. Create a production deployment checklist for a [type of application] built using [tech stack]. The checklist should focus only on deployment-phase steps and include essential items such as infrastructure readiness, security, monitoring, and rollback strategies. Ensure to include IP whitelisting steps specifically for AWS services . Format the output as a clear, detailed bullet-point checklist that can be followed by engineering or DevOps teams for a secure and stable release.'
-// },
+          // {
+          //   role: 'system',
+          //   content: 'Create a production deployment checklist for a [type of application] built using [tech stack]. The checklist should cover deployment-phase steps,  including security, monitoring, rollback plans.Ensure to include IP whitelisting steps specifically for AWS services. Format it as a detailed, bullet-pointed list that can be used by DevOps or engineering teams.',
+          // },
+        {
+  role: 'system',
+  content: 'You are a DevOps expert. Create a production deployment checklist for a [type of application] built using [tech stack]. The checklist should focus only on deployment-phase steps and include essential items such as infrastructure readiness, security, monitoring, and rollback strategies. Ensure to include IP whitelisting steps specifically for AWS  . Format the output as a clear, detailed bullet-point checklist that can be followed by engineering or DevOps teams for a secure and stable release.'
+},
+
+{
+  role: 'user',
+  content: `Provide a detailed production deployment checklist for a ${tech} application.`,
+}
+
 
           {
             role: 'user',
